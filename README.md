@@ -1,3 +1,9 @@
+## About
+
+bywei = 程序员百味
+
+个人博客 = "http://www.bywei.cn"
+
 ## Use Case
 You can use this plugin to calculate the relevance score of the two feature, such as:
 - Personalized Search;
@@ -14,12 +20,12 @@ You can use this plugin to calculate the relevance score of the two feature, suc
 ## Script Parameters
 - **field**: **required**, field in index to store the vector of document;
 - **inputFeatureVector**: **required**,  the condition vector, a string connected with comma;
-- **version**: version of vector, if it isn't null, it should match the version of vector of document(if use version, the field value should start with ‘$VERSION|’, such as '20170331|0.1,2.3,-1.6,0.7,-1.3');
+- **version**: version of vector, if it isn't null, it should match the version of vector of document(if use version, the field value should start with 鈥�$VERSION|鈥�, such as '20170331|0.1,2.3,-1.6,0.7,-1.3');
 - **baseConstant** and **factorConstant**: used to calculate the final score, default value are 1. final_score = baseConstant + factorConstant * cos(X, Y)
 
 ## Example
 ### create a test index
-
+```
     PUT /test
     {
       "mappings": {
@@ -42,9 +48,10 @@ You can use this plugin to calculate the relevance score of the two feature, suc
         }
       }
     }
+```
 
 ### index some documents
-
+```
     POST /test/product/1
     {
       "productName": "My favorite brand of shoes",
@@ -62,9 +69,9 @@ You can use this plugin to calculate the relevance score of the two feature, suc
       "productName": "The shoes I don't like",
       "productFeatureVector": "1.2,0.1,0.4,-0.2,0.3"
     }
-
+```
 ### normal search
-
+```
     POST /test/_search
     {
       "query": {
@@ -73,9 +80,10 @@ You can use this plugin to calculate the relevance score of the two feature, suc
         }
       }
     }
+```
 
 the the result is: 
-
+```
     {
       "took": 8,
       "timed_out": false,
@@ -121,9 +129,10 @@ the the result is:
         ]
       }
     }
+```
 
 ### search with feature score
-
+```
     POST /test/_search
     {
   "from": 0,
@@ -219,226 +228,322 @@ the the result is:
     }
   ]
 }
-
+```
 and the result is: 
 
-    {
-"took": 26,
-"timed_out": false,
-"_shards": {
-"total": 5,
-"successful": 5,
-"failed": 0
-},
-"hits": {
-"total": 12,
-"max_score": null,
-"hits": [
+```
 {
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "32217JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "32217",
-"_parent": "32217",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT5","RBT1"],"promotionRateName": { "RBT5": [ "金卡会员提前3天预订特惠"],"RBT1": [ "金卡会员价","银卡会员价"]},"ifPromotion": false,"promotionCodes": [ ],"isSale": true,"hotelId": 32217,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-1
-,
-300
-,
-440
-]
+	"took": 26,
+	"timed_out": false,
+	"_shards": {
+		"total": 5,
+		"successful": 5,
+		"failed": 0
+	},
+	"hits": {
+		"total": 12,
+		"max_score": null,
+		"hits": [{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "32217JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "32217",
+				"_parent": "32217",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT5", "RBT1"],
+					"promotionRateName": {
+						"RBT5": ["閲戝崱浼氬憳鎻愬墠3澶╅璁㈢壒鎯�"],
+						"RBT1": ["閲戝崱浼氬憳浠�", "閾跺崱浼氬憳浠�"]
+					},
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": true,
+					"hotelId": 32217,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					1,
+					300,
+					440
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "32195JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "32195",
+				"_parent": "32195",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT5", "RBT1"],
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": true,
+					"hotelId": 32195,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					1,
+					200,
+					554
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "32250JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "32250",
+				"_parent": "32250",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT5"],
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": true,
+					"hotelId": 32250,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					1,
+					0,
+					596
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "32216JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "32216",
+				"_parent": "32216",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT5", "RBT1"],
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": true,
+					"hotelId": 32216,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					1,
+					0,
+					646
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "32247JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "32247",
+				"_parent": "32247",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT5", "RBT1"],
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": true,
+					"hotelId": 32247,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					1,
+					0,
+					4079
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "32219JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "32219",
+				"_parent": "32219",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT5", "RBT1"],
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": true,
+					"hotelId": 32219,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					1,
+					0,
+					4909
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "21400JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "21400",
+				"_parent": "21400",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": true,
+					"promotionTypes": ["RBT1"],
+					"promotionRateName": {},
+					"ifPromotion": true,
+					"promotionCodes": ["coupon98", "JJIHMC1A", "JJSPDB13A1", "mastercard"],
+					"isSale": false,
+					"hotelId": 21400,
+					"isUseCoupon": true,
+					"promotionRateCodes": ["MEMS2", "DISG1"]
+				},
+				"sort": [
+					0,
+					0,
+					1
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "22292JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "22292",
+				"_parent": "22292",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT1"],
+					"promotionRateName": {},
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": false,
+					"hotelId": 22292,
+					"isUseCoupon": true,
+					"promotionRateCodes": ["DISG1"]
+				},
+				"sort": [
+					0,
+					0,
+					12
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "22290JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "22290",
+				"_parent": "22290",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT1"],
+					"promotionRateName": {},
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": false,
+					"hotelId": 22290,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					0,
+					0,
+					18
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "21382JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "21382",
+				"_parent": "21382",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["JJINN_TJ", "RBT1"],
+					"promotionRateName": {},
+					"ifPromotion": true,
+					"promotionCodes": ["JJIHMC1A", "JJSPDB13A1", "mastercard"],
+					"isSale": false,
+					"hotelId": 21382,
+					"isUseCoupon": true,
+					"promotionRateCodes": ["MEMS2", "DISG1"]
+				},
+				"sort": [
+					0,
+					0,
+					150
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "21440JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "21440",
+				"_parent": "21440",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": true,
+					"promotionTypes": ["RBT1"],
+					"promotionRateName": {},
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": false,
+					"hotelId": 21440,
+					"isUseCoupon": true,
+					"promotionRateCodes": []
+				},
+				"sort": [
+					0,
+					0,
+					488
+				]
+			},
+			{
+				"_index": "hotelplatform",
+				"_type": "hotelDayPrice",
+				"_id": "20166JJ_INTEGRATION_WEIXIN1493740800000",
+				"_score": null,
+				"_routing": "20166",
+				"_parent": "20166",
+				"_source": {
+					"isPromotion": true,
+					"isScoreExchange": false,
+					"promotionTypes": ["RBT1"],
+					"promotionRateName": {},
+					"ifPromotion": false,
+					"promotionCodes": [],
+					"isSale": false,
+					"hotelId": 20166,
+					"isUseCoupon": true,
+					"promotionRateCodes": ["JCP"]
+				},
+				"sort": [
+					0,
+					0,
+					755
+				]
+			}
+		]
+	}
 }
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "32195JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "32195",
-"_parent": "32195",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT5","RBT1"],"promotionRateName": { "RBT5": [ "金卡会员提前3天预订特惠"],"RBT1": [ "金卡会员价"]},"ifPromotion": false,"promotionCodes": [ ],"isSale": true,"hotelId": 32195,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-1
-,
-200
-,
-554
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "32250JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "32250",
-"_parent": "32250",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT5"],"promotionRateName": { "RBT5": [ "白金卡会员提前3天预订特惠"]},"ifPromotion": false,"promotionCodes": [ ],"isSale": true,"hotelId": 32250,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-1
-,
-0
-,
-596
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "32216JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "32216",
-"_parent": "32216",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT5","RBT1"],"promotionRateName": { "RBT5": [ "金卡会员提前30天预订特惠"],"RBT1": [ "金卡会员价"]},"ifPromotion": false,"promotionCodes": [ ],"isSale": true,"hotelId": 32216,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-1
-,
-0
-,
-646
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "32247JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "32247",
-"_parent": "32247",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT5","RBT1"],"promotionRateName": { "RBT5": [ "黑卡会员提前3天预订特惠","白金卡会员提前3天预订特惠","银卡会员提前30天预订特惠","黑卡会员提前30天预订特惠","银卡会员提前3天预订特惠","金卡会员提前3天预订特惠","白金卡会员提前30天预订特惠","金卡会员提前30天预订特惠"],"RBT1": [ "金卡会员价","黑卡会员价","银卡会员价"]},"ifPromotion": false,"promotionCodes": [ ],"isSale": true,"hotelId": 32247,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-1
-,
-0
-,
-4079
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "32219JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "32219",
-"_parent": "32219",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT5","RBT1"],"promotionRateName": { "RBT5": [ "黑卡会员提前3天预订特惠"],"RBT1": [ "金卡会员价","银卡会员价"]},"ifPromotion": false,"promotionCodes": [ ],"isSale": true,"hotelId": 32219,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-1
-,
-0
-,
-4909
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "21400JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "21400",
-"_parent": "21400",
-"_source": { "isPromotion": true,"isScoreExchange": true,"promotionTypes": [ "RBT1"],"promotionRateName": { },"ifPromotion": true,"promotionCodes": [ "coupon98","JJIHMC1A","JJSPDB13A1","mastercard"],"isSale": false,"hotelId": 21400,"isUseCoupon": true,"promotionRateCodes": [ "MEMS2","DISG1"]},
-"sort": [
-0
-,
-0
-,
-1
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "22292JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "22292",
-"_parent": "22292",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT1"],"promotionRateName": { },"ifPromotion": false,"promotionCodes": [ ],"isSale": false,"hotelId": 22292,"isUseCoupon": true,"promotionRateCodes": [ "DISG1"]},
-"sort": [
-0
-,
-0
-,
-12
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "22290JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "22290",
-"_parent": "22290",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT1"],"promotionRateName": { },"ifPromotion": false,"promotionCodes": [ ],"isSale": false,"hotelId": 22290,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-0
-,
-0
-,
-18
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "21382JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "21382",
-"_parent": "21382",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "JJINN_TJ","RBT1"],"promotionRateName": { },"ifPromotion": true,"promotionCodes": [ "JJIHMC1A","JJSPDB13A1","mastercard"],"isSale": false,"hotelId": 21382,"isUseCoupon": true,"promotionRateCodes": [ "MEMS2","DISG1"]},
-"sort": [
-0
-,
-0
-,
-150
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "21440JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "21440",
-"_parent": "21440",
-"_source": { "isPromotion": true,"isScoreExchange": true,"promotionTypes": [ "RBT1"],"promotionRateName": { },"ifPromotion": false,"promotionCodes": [ ],"isSale": false,"hotelId": 21440,"isUseCoupon": true,"promotionRateCodes": [ ]},
-"sort": [
-0
-,
-0
-,
-488
-]
-}
-,
-{
-"_index": "hotelplatform",
-"_type": "hotelDayPrice",
-"_id": "20166JJ_INTEGRATION_WEIXIN1493740800000",
-"_score": null,
-"_routing": "20166",
-"_parent": "20166",
-"_source": { "isPromotion": true,"isScoreExchange": false,"promotionTypes": [ "RBT1"],"promotionRateName": { },"ifPromotion": false,"promotionCodes": [ ],"isSale": false,"hotelId": 20166,"isUseCoupon": true,"promotionRateCodes": [ "JCP"]},
-"sort": [
-0
-,
-0
-,
-755
-]
-}
-]
-}
-}
+```
     
 ### A personalized search case details
