@@ -1,6 +1,6 @@
 ## About
-- 百味博客
-- WebSite: http://www.bywei.cn
+- bywei = 程序员百味
+- 百味博客: http://www.bywei.cn
 
 ## Use Case
 You can use this plugin to calculate the relevance score of the two feature, such as:
