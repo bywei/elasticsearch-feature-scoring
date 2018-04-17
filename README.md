@@ -444,5 +444,4 @@ and the result is:
 	}
     
 ### A personalized search case details
- see
- jinjiang app
+ see BYWEI app DEMO
