@@ -1,8 +1,6 @@
 ## About
-
-bywei = 程序员百味
-
-个人博客 = "http://www.bywei.cn"
+- 百味博客
+- WebSite: http://www.bywei.cn
 
 ## Use Case
 You can use this plugin to calculate the relevance score of the two feature, such as:
@@ -22,11 +20,6 @@ You can use this plugin to calculate the relevance score of the two feature, suc
 - **customSorts**: **customSortField is not null required **,  the condition, a Map<String, Integer>;
 - **sortFields**: **Optional**,  the condition, a Map<String, Integer>;
 - **version**: version of vector, if it isn't null, it should match the version of vector of document(if use version, the field value should start with ‘$VERSION|’, such as '20170331|0.1');
-
-## About
-- QQ: 1940775885
-- Wx: jiaivr
-- WebSite: http://www.bywei.cn
 
 ## Example
 ### create a test index
