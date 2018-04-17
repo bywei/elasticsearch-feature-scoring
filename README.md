@@ -142,7 +142,7 @@ the the result is:
       "must": [
         {
           "term": {
-            "channelCode": "JJ_INTEGRATION_WEIXIN"
+            "channelCode": "CHANNELCODE"
           }
         },
         {
@@ -246,7 +246,7 @@ and the result is:
 		"hits": [{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "32217JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "32217CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "32217",
 				"_parent": "32217",
@@ -254,10 +254,6 @@ and the result is:
 					"isPromotion": true,
 					"isScoreExchange": false,
 					"promotionTypes": ["RBT5", "RBT1"],
-					"promotionRateName": {
-						"RBT5": ["閲戝崱浼氬憳鎻愬墠3澶╅璁㈢壒鎯�"],
-						"RBT1": ["閲戝崱浼氬憳浠�", "閾跺崱浼氬憳浠�"]
-					},
 					"ifPromotion": false,
 					"promotionCodes": [],
 					"isSale": true,
@@ -274,7 +270,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "32195JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "32195CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "32195",
 				"_parent": "32195",
@@ -298,7 +294,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "32250JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "32250CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "32250",
 				"_parent": "32250",
@@ -322,7 +318,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "32216JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "32216CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "32216",
 				"_parent": "32216",
@@ -346,7 +342,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "32247JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "32247CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "32247",
 				"_parent": "32247",
@@ -370,7 +366,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "32219JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "32219CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "32219",
 				"_parent": "32219",
@@ -394,7 +390,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "21400JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "21400CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "21400",
 				"_parent": "21400",
@@ -419,7 +415,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "22292JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "22292CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "22292",
 				"_parent": "22292",
@@ -444,7 +440,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "22290JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "22290CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "22290",
 				"_parent": "22290",
@@ -469,7 +465,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "21382JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "21382CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "21382",
 				"_parent": "21382",
@@ -494,7 +490,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "21440JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "21440CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "21440",
 				"_parent": "21440",
@@ -519,7 +515,7 @@ and the result is:
 			{
 				"_index": "hotelplatform",
 				"_type": "hotelDayPrice",
-				"_id": "20166JJ_INTEGRATION_WEIXIN1493740800000",
+				"_id": "20166CHANNELCODE493740800000",
 				"_score": null,
 				"_routing": "20166",
 				"_parent": "20166",
